@@ -1,10 +1,13 @@
 import java.util.Random;
 public class RandomInteger {
     public static void main(String[] args) {
+        //Array to store 1000 random Integers
         Integer[] randInt = new Integer[1000];
+
         Random rand = new Random();
         Integer count = 0;
         for(int i=0;i<1000;i++) {
+            //Generate a random Integer
             int tempInt = rand.nextInt(1001);
             if(tempInt<=1000){
                 count ++;
@@ -12,6 +15,7 @@ public class RandomInteger {
             }
             randInt[i] = tempInt;
         }
+        //Validating if all the integers are within 1000 inclusive
         if(count == 1000){
             System.out.println("All the integers are validated and lie within the range of 1000, with 1000 being the max");
         }

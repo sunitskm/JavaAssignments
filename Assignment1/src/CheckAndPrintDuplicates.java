@@ -5,6 +5,7 @@ import java.util.Set;
 
 public class CheckAndPrintDuplicates {
     public static void main(String[] args) {
+        //Taking input from user
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of elements you want to enter: 1");
         Integer n = sc.nextInt();
@@ -17,10 +18,11 @@ public class CheckAndPrintDuplicates {
         Set<Integer> setDuplicate = new HashSet<>();
         for(int i=0; i < n; i++){
             if(!set.add(num[i])){
+                //Adding the duplicates
                 setDuplicate.add(num[i]);
             }
         }
-
+        //Checking if duplicates are present and printing them
         if(!setDuplicate.isEmpty()){
             System.out.println("Duplicates are found in the list!");
             Iterator<Integer> itr = setDuplicate.iterator();

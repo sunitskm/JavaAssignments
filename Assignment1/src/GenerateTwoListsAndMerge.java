@@ -48,6 +48,7 @@ public class GenerateTwoListsAndMerge {
         }
 
     }
+    //Function for merging
     public static Integer[] mergeIntoOne(Integer[] randInt1,Integer[] randInt2){
         Integer[] randMerge = new Integer[2000];
         int i = 0, j = 0, k = 0;
