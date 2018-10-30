@@ -1,5 +1,13 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 
 public class GenerateTwoListsAndMerge {
 
@@ -16,7 +24,13 @@ public class GenerateTwoListsAndMerge {
             }
             randInt1[i] = tempInt;
         }
-        if(count == 1000){
+        List<Integer> listInt1 = new ArrayList<>();
+        listInt1 = Arrays.asList(randInt1);
+        List<Integer> result = listInt1.stream()
+        		.filter(x -> x<0 || x>1000)
+        		.sorted()
+        		.collect(Collectors.toList());
+        if(result.size() == 0){
             System.out.println("All the integers are validated and lie within the range of 1000, with 1000 being the max");
         }
         else{
@@ -33,7 +47,13 @@ public class GenerateTwoListsAndMerge {
             }
             randInt2[i] = tempInt;
         }
-        if(count == 1000){
+        List<Integer> listInt2 = new ArrayList<>();
+        listInt2 = Arrays.asList(randInt2);
+         result = listInt2.stream()
+        		.filter(x -> x<0 || x>1000)
+        		.sorted()
+        		.collect(Collectors.toList());
+        if(result.size() == 0){
             System.out.println("All the integers are validated and lie within the range of 1000, with 1000 being the max");
         }
         else{
@@ -43,8 +63,13 @@ public class GenerateTwoListsAndMerge {
         Arrays.sort(randInt2);
 
         Integer[] randMerge = mergeIntoOne(randInt1,randInt2);
+        Set<Integer> mergeSet = new HashSet<Integer>();
         for (Integer i: randMerge) {
-            System.out.println(i);
+            mergeSet.add(i);
+        }
+        Iterator<Integer> it = mergeSet.iterator();
+        while(it.hasNext()) {
+        	//System.out.println(it.next());
         }
 
     }
