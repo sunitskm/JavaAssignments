@@ -101,7 +101,7 @@ select student.sname, q.dname from student join
 (select cno from course where cname Like '%College Geometry%'))q on student.sid = q.sid
 
 //8
-select dname numphds from dept where dname not in(
+select dname, numphds from dept where dname not in(
 select distinct(dname) from enroll where cno in(
 select cno from course where cname Like '%College Geometry%'))
 
@@ -127,14 +127,18 @@ where
 group by
     m.dname
 
-select sid,dname from major where sid in(
-select sid from student where gpa<1.0)
 
-select avg(gpa) from student where 
-select sid from student where gpa<1.0
+//11
+select avg(gpa) from 
+(select sid,dname from major where dname in(
+select distinct dname from major where sid in
+(select sid from student where gpa<1.0) )) s,
+Student where s.sid = Student.sid group by s.dname
 
 //12
 select cno from course where dname like '%Civil Engineering%'
+
+
 
 select sid,sname,gpa from student where sid = (
 select sid from enroll where cno in 
